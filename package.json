@@ -39,5 +39,5 @@
         "rimraf": "^3.0.2"
     },
     "keywords": [],
-    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "browserslist": "> 0.5%, last 2 versions, not dead"
 }
