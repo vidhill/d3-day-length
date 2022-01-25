@@ -1,23 +1,43 @@
 {
-  "name": "fun-with-d3",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
-  "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
-  },
-  "dependencies": {
-    "d3-array": "2.3.3",
-    "d3-axis": "1.0.12",
-    "d3-scale": "3.2.0",
-    "d3-selection": "1.4.0",
-    "d3-shape": "1.3.5",
-    "date-fns": "2.6.0"
-  },
-  "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
-  },
-  "keywords": []
+    "name": "fun-with-d3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html",
+        "lint": "npm-run-all --parallel lint:*",
+        "lint-fix": "npm-run-all --parallel fix:*",
+        "lint:js": "eslint 'src/**/*.js'",
+        "fix:js": "npm run lint:js -- --fix",
+        "lint-md": "prettier  \"**/*.md\"",
+        "lint-json": "prettier  \"**/*.json\"",
+        "lint:json": "npm run lint-json -- --check",
+        "fix:json": "npm run lint-json -- --write"
+    },
+    "dependencies": {
+        "d3-array": "2.3.3",
+        "d3-axis": "1.0.12",
+        "d3-scale": "3.2.0",
+        "d3-selection": "1.4.0",
+        "d3-shape": "1.3.5",
+        "date-fns": "2.6.0"
+    },
+    "devDependencies": {
+        "@babel/core": "7.2.0",
+        "parcel-bundler": "^1.6.1",
+        "eslint": "^7.29.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-vidhill": "^2.0.1",
+        "eslint-plugin-eslint-comments": "^3.2.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-jest": "^24.3.6",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-unicorn": "^33.0.1",
+        "prettier": "^2.3.1",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2"
+    },
+    "keywords": []
 }
