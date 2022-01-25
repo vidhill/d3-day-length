@@ -24,8 +24,7 @@
         "date-fns": "2.6.0"
     },
     "devDependencies": {
-        "@babel/core": "7.2.0",
-        "parcel-bundler": "^1.6.1",
+        "@babel/core": "7.16.12",
         "eslint": "^7.29.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-vidhill": "^2.0.1",
@@ -35,8 +34,9 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-unicorn": "^33.0.1",
-        "prettier": "^2.3.1",
         "npm-run-all": "^4.1.5",
+        "parcel": "^2.2.1",
+        "prettier": "^2.3.1",
         "rimraf": "^3.0.2"
     },
     "keywords": []
