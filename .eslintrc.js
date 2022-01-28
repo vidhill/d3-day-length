@@ -12,7 +12,7 @@ module.exports = {
     overrides: [
         {
             extends: ['vidhill/node'],
-            files: ['.eslintrc.js'],
+            files: ['.eslintrc.js', './functions/*.js'],
             env: {
                 node: true,
             },

@@ -12,7 +12,8 @@
         "lint-md": "prettier  \"**/*.md\"",
         "lint-json": "prettier  \"**/*.json\"",
         "lint:json": "npm run lint-json -- --check",
-        "fix:json": "npm run lint-json -- --write"
+        "fix:json": "npm run lint-json -- --write",
+        "netlify-dev": "netlify dev"
     },
     "dependencies": {
         "d3-array": "2.3.3",
@@ -33,6 +34,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-unicorn": "^33.0.1",
+        "netlify-cli": "^8.14.1",
         "npm-run-all": "^4.1.5",
         "parcel": "^2.2.1",
         "prettier": "^2.3.1",
