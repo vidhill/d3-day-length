@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 
 import d3 from './d3.js';
 import data from './data.json';
+import logger from './logger';
 
 const margin = {
     top: 50,
@@ -43,7 +44,7 @@ const yScale = d3
 
 // const today = new Date();
 
-// console.log(markerLine([0,1]))
+// logger.log(markerLine([0,1]))
 
 const path = d3
     .area()
@@ -87,44 +88,44 @@ svg.append('path')
     .attr('d', path); // 11. Calls the line generator
 
 const makeMarker = (date = new Date('2020-06-21T15:28:14.071Z')) => {
-    console.log(date);
+    logger.log(date);
     const height = yScale(0);
     const d = `M ${dateScale(date)} 0 v${height}`;
     return d;
 };
-console.log(d3.axisBottom(dateScale));
+logger.log(d3.axisBottom(dateScale));
 
 const myFunc = function (selection) {
-    // console.log(selection.node().append("g"));
-    console.log(selection.data());
+    // logger.log(selection.node().append("g"));
+    logger.log(selection.data());
 
     // selection.each(val => {
-    //   console.log({ val });
+    //   logger.log({ val });
     // });
 
-    // console.log('data', selection.data())
+    // logger.log('data', selection.data())
     selection
         .data([0, 1, 2])
         .enter()
         .append('text')
         .attr('class', (d) => {
-            console.log('ss', d);
+            logger.log('ss', d);
             return d;
         });
     // selection.exit()
     return (dd) => {
-        console.log({ dd });
+        logger.log({ dd });
     };
 };
 
 const d = svg.append('g');
-console.log(d);
+logger.log(d);
 
 d.data([0, 1, 2])
     .enter()
     .append('g')
     .attr('class', (d) => {
-        console.log('ss', d);
+        logger.log('ss', d);
         return d;
     });
 
@@ -134,4 +135,4 @@ svg.append('path')
     .attr('d', makeMarker())
     .attr('stroke', 'black');
 
-//console.log(a);
+//logger.log(a);
