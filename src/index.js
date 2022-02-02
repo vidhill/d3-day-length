@@ -3,8 +3,8 @@
 import './styles.css';
 
 import { format } from 'date-fns';
+import { area, axisBottom, axisLeft, scaleTime, select } from 'd3';
 
-import d3 from './d3.js';
 import data from './data.json';
 import logger from './logger';
 
@@ -35,7 +35,7 @@ const dataset = data.map((item) => ({
 const startDate = dataset[0].x;
 const endDate = dataset[n - 1].x;
 
-const dateScale = d3.scaleTime().domain([startDate, endDate]).range([0, width]); // output
+const dateScale = scaleTime().domain([startDate, endDate]).range([0, width]); // output
 
 const yScale = d3
     .scaleLinear()
@@ -46,20 +46,18 @@ const yScale = d3
 
 // logger.log(markerLine([0,1]))
 
-const path = d3
-    .area()
+const path = area()
     .x((d) => dateScale(d.x))
     .y1((d) => yScale(d.y))
     .y0(yScale(0));
 
 // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
-// const dataset = d3.range(n).map(d => {
+// const dataset = range(n).map(d => {
 //   return { y: randomUniform(1)() };
 // });
 
 // 1. Add the SVG to the page and employ #2
-const svg = d3
-    .select('#app')
+const svg = select('#app')
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
@@ -70,15 +68,15 @@ svg.append('g')
     .attr('class', 'x axis')
     .attr('transform', 'translate(0,' + height + ')')
     .call(
-        d3.axisBottom(dateScale).tickFormat((a) => {
+        axisBottom(dateScale).tickFormat((a) => {
             return format(a, 'MMM');
         })
     );
 
-// .tickFormat(d3.formatPrefix(".1", 1e6))); // Create an axis component with d3.axisBottom
+// .tickFormat(formatPrefix(".1", 1e6))); // Create an axis component with d3.axisBottom
 
 // 4. Call the y axis in a group tag
-svg.append('g').attr('class', 'y axis').call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
+svg.append('g').attr('class', 'y axis').call(axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 // 9. Append the path, bind the data, and call the line generator
 
@@ -93,7 +91,7 @@ const makeMarker = (date = new Date('2020-06-21T15:28:14.071Z')) => {
     const d = `M ${dateScale(date)} 0 v${height}`;
     return d;
 };
-logger.log(d3.axisBottom(dateScale));
+logger.log(axisBottom(dateScale));
 
 const myFunc = function (selection) {
     // logger.log(selection.node().append("g"));
