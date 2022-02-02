@@ -3,7 +3,7 @@
 import './styles.css';
 
 import { format } from 'date-fns';
-import { area, axisBottom, axisLeft, scaleTime, select } from 'd3';
+import { area, axisBottom, axisLeft, scaleLinear, scaleTime, select } from 'd3';
 
 import data from './data.json';
 import logger from './logger';
@@ -37,8 +37,7 @@ const endDate = dataset[n - 1].x;
 
 const dateScale = scaleTime().domain([startDate, endDate]).range([0, width]); // output
 
-const yScale = d3
-    .scaleLinear()
+const yScale = scaleLinear()
     .domain([0, 1]) // input
     .range([height, 0]); // output
 
