@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 
 import d3 from './d3.js';
 import data from './data.json';
+import logger from './logger';
 
 const margin = {
     top: 50,
